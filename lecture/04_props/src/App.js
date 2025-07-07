@@ -1,6 +1,13 @@
 import NameCard from "./NameCard";
 
 function App() {
+
+  const people = [
+    {id: 1, name: '홍길동', phone: '010-1111-2222'},
+    {id: 2, name: '김철수', phone: '010-2222-3333'},
+    {id: 3, name: '강개순', phone: '010-4444-5555'},
+  ]
+
   return (
     <>
       {/* 매번 동일한 형태의 Element 집합 (단, 내용만 다름) => Component로 분리 */}
@@ -23,10 +30,23 @@ function App() {
         */
       }
 
-      <NameCard name="홍길동" phone="010-1111-2222" />
-      <NameCard name="김철수" phone="010-2222-3333" />
-      <NameCard name="강개순" phone="010-4444-5555" />
-      <NameCard /> 
+      {/* 1) props 테스트 */}
+      {
+        /*
+          <NameCard name="홍길동" phone="010-1111-2222" />
+          <NameCard name="김철수" phone="010-2222-3333" />
+          <NameCard name="강개순" phone="010-4444-5555" />
+          <NameCard /> 
+        */
+      }
+
+      {/* 2) key props 테스트 */}
+      {
+        people.map((person, index) => (
+          <NameCard key={person.id} name={person.name} phone={person.phone} />
+        ))
+      }
+
     </>
   );
 }
@@ -96,6 +116,16 @@ export default App;
       function ChildComponent({ children }) {
         return <div>{ children }</div>;
       }
+
+  
+  * key props
+    1) 리스트 렌더링 시 각 항목을 고유하게 식별하기 위해 key props 사용
+    2) 리액트가 효율적으로 변경 사항을 추적하고 업데이트하는데 도움을 줌
+    3) key
+      ① 리액트에서 key는 컴포넌트 배열을 rendering 했을 때 어떤 요소에 변경이 있는지 알아내기 위해 사용하는 식별자 역할을 수행합니다.
+      ② key가 존재하는 경우 빠르게 어떤 요소에 변화가 일어났는지 감지할 수 있습니다.
+      ③ key를 이용해 해당 요소를 추출할 수 있습니다.
+      ④ key로 사용하기 적절한 값은 DB에서 조회한 데이터의 PK값입니다.
 
   
   * props drilling
