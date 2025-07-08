@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# B-1_React.js
+## 5. 이벤트 처리
+<br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 1-5-1. 이벤트 처리 방법
+- React 이벤트 이름은 소문자 대신 camelCase를 사용한다
+- JSX에 문자열 대신 함수를 전달한다
 
-## Available Scripts
+```jsx
+<button onClick={clickBtn}>버튼 클릭!</button>
+```
 
-In the project directory, you can run:
+- 주의 사항
+    - React의 컴포넌트에는 이벤트 설정이 불가능하다
+<br><br><br>
+<hr>
+<br><br>
 
-### `npm start`
+### 1-5-2. 이벤트 핸들러
+- 이벤트 속성에서 중괄호`{}`를 사용해 이름 없는 익명 함수로 이벤트 핸들러 함수를 작성할 수 있다
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```jsx
+<button onClick={() => setCount(count + 1)}>
+  증가
+</button>
+```
+<br><br><br>
+<hr>
+<br><br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 1-5-3. 자주 사용되는 이벤트 핸들러
+- `onChange`
+    - `onChange` 이벤트가 발생하면, `e.target.value`를 통해 이벤트 객체에 담긴 input 값을 읽어올 수 있다
+    - 사용자가 상호작용 하는 순간마다 입력된 정보 부분이 바로 업데이트 된다
+    
+    ```jsx
+    onChange={(e) => setState(e.target.value)}
+    ```
+    <br>
 
-### `npm test`
+- `onClick`
+    - 사용자가 클릭했을 때 발생하는 이벤트이다
+    
+    ```jsx
+    onClick={() => setState(새로운값)}
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 미션
+[이벤트 처리](https://www.notion.so/05-21b1eb8b52ff80d8a3f5d118177e725c?source=copy_link)
