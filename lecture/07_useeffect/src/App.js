@@ -6,7 +6,7 @@ import Example5 from "./Example5";
 
 function App() {
 
-  // Restricted 모드 해제하기 
+  // Stricted 모드 해제하기 
 
   return (
     <div>
@@ -22,7 +22,7 @@ function App() {
       {/* 4) 스케쥴링함수 없애기 cleanup */}
       {/* <Example4 /> */}
 
-      {/* 5) 이벤트리스너 없애기 cleanup */}
+      {/* 5) API 호출 */}
       <Example5 />
 
     </div>

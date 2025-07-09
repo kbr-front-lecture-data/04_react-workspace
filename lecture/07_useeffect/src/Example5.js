@@ -1,19 +1,21 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function Example5() {
 
+  const [todos, setTodos] = useState([]);
+
   useEffect(() => {
-    window.addEventListener('keydown', keydownHandler);
-
-    return () => window.removeEventListener('keydown', keydownHandler);
-  }, []);
-
-  const keydownHandler = (e) => {
-    console.log('눌린 키:', e.key)
-  };
+    fetch('https://jsonplaceholder.typicode.com/todos')
+      .then(response => response.json())
+      .then(jsonData => {
+        setTodos(jsonData);  // API로부터 가져온 데이터를 렌더링 할 수 있도록 state에 저장합니다.
+      })
+  }, [])  // 최초 렌더링할 때 가져온 데이터를 출력합니다.
 
   return (
-    <div>콘솔창을 킨 상태에서 아무 키나 눌러보세요</div>
+    <>
+      { todos.map(todo => <div key={todo.id}>{todo.title}</div>) }
+    </>
   )
 }
 
