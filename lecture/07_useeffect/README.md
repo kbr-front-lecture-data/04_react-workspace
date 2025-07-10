@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# B-1_React.js
+## 7. Hooks - useEffect
+<br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 1-7-1. Hooks란
+- 리액트 16.8 버전에서 추가된 기능이며 기존의 함수형 컴포넌트에서 할 수 없던 작업을 할 수 있게 해준다
+- Hooks가 생기기 전에는 함수형 컴포넌트를 클래스 컴포넌트로 변환 해야만 상태 메서드를 사용할 수 있었다
+- 이제 함수형 컴포넌트 안에서 이런 기능을 사용할 수 있는 방법을 만들어 코드를 작성할 수 있게 한다
+<br><br><br>
+<hr>
+<br><br>
 
-## Available Scripts
+### 1-7-2. useEffect
 
-In the project directory, you can run:
+- 리액트 컴포넌트가 렌더링 될 때마다 특정 작업을 수행하도록 설정할 수 있는 Hook이다
+- mount(브라우저에 뜰 때)나 update(갱신될 때) 이후 시점에 동작 되어야 할 내용을 `useEffect`를 사용해 작성한다
+- 단순히 익명 함수로 작성 했을 경우 mount나 update 이후 동작 된다
+    
+    ```jsx
+    useEffect(() => {
+      console.log('렌더링될 때마다 실행');
+    });
+    ```
+    <br>
+    
+- 빈 배열을 추가했을 경우, mount 시점에만 동작한다
+    
+    ```jsx
+    useEffect(() => {
+      console.log('처음 생성될 때만 실행');
+    }, []);
+    ```
+    <br>
+    
+- 배열을 추가하고 값을 넣었을 경우 해당 값이 변화 해야만 `useEffect`가 동작한다
+    
+    ```jsx
+    useEffect(() => {
+      console.log('isRunning이 변경됨');
+    }, [isRunning]);
+    ```
+    <br>
+    
+- 새로운 useEffect 함수가 발생하기 전에 리소스를 제거해야 하는 작업도 할 수 있다
+    - 이런 함수를 정리 함수라고 한다
+    
+    ```jsx
+    useEffect(() => {
+      const interval = setInterval(() => {}, 1000);
+      
+      return () => {
+        clearInterval(interval);
+      };
+    }, []);
+    ```
+    <br>
+    
+    - 마운트 후 업데이트를 했을 때 동작 과정
+        
+        <img src="../../image/React 마운트와 업데이트.png">
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 미션
+[Hooks - useEffect](https://www.notion.so/06-Hooks-useEffect-21b1eb8b52ff806889d2dd26ef1086c6?source=copy_link)

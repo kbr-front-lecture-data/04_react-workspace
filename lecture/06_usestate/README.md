@@ -1,5 +1,5 @@
 # B-1_React.js
-## 6. state
+## 6. Hooks - useState
 <br>
 
 ### 1-6-1. state 개념
