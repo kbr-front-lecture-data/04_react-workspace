@@ -1,0 +1,15 @@
+.nav {
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+}
+.link {
+  margin-right: 20px;
+  text-decoration: none;
+  color: black;
+}
+.detail {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
